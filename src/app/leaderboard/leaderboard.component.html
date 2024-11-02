@@ -1,1 +1,5 @@
-Hi leaderboard
+<ng-container *ngIf="!isLoading">
+    <ng-container *ngFor="let char of characterList">
+        <app-leaderboard-tile [character]="char"></app-leaderboard-tile>
+    </ng-container>
+</ng-container>

@@ -1,33 +1,76 @@
 import { CommonModule } from '@angular/common';
-import {
-    ChangeDetectionStrategy,
-    Component,
-    OnDestroy,
-    OnInit,
-} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CharacterService } from '../core/services/character.service';
-import { Subject, takeUntil } from 'rxjs';
+import { forkJoin, Subject, takeUntil } from 'rxjs';
+import { Character } from '../core/models/character/character.interface';
+
+import { LeaderboardTileComponent } from './leaderboard-tile/leaderboard-tile.component';
 
 @Component({
     selector: 'app-leaderboard',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, LeaderboardTileComponent],
     templateUrl: './leaderboard.component.html',
     styleUrl: './leaderboard.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LeaderboardComponent implements OnInit, OnDestroy {
     constructor(private characterService: CharacterService) {}
 
+    characterList: Character[] = [];
+
+    isLoading = true;
     destroy$: Subject<void> = new Subject<void>();
 
     ngOnInit(): void {
-        this.characterService
-            .getCharacterByName('smootheyes', 'stitches')
+        const james = this.characterService.getCharacterByName(
+            'smootheyes',
+            'stitches'
+        );
+
+        const tom = this.characterService.getCharacterByName(
+            'hoofinboofer',
+            'stitches'
+        );
+
+        const tom2 = this.characterService.getCharacterByName(
+            'teezone',
+            'nekrosh'
+        );
+
+        const raph = this.characterService.getCharacterByName(
+            'smootheyes',
+            'stitches'
+        );
+
+        const reiss = this.characterService.getCharacterByName(
+            'pumpumpalaii',
+            'stitches'
+        );
+
+        const reiss2 = this.characterService.getCharacterByName(
+            'pumpumpala',
+            'stitches'
+        );
+
+        const reub = this.characterService.getCharacterByName(
+            'wnorhuhno',
+            'stitches'
+        );
+
+        forkJoin([james, tom, tom2, raph, reiss, reiss2, reub])
             .pipe(takeUntil(this.destroy$))
-            .subscribe((response) => {
-                console.log(response);
-            });
+            .subscribe(
+                (responses) => {
+                    this.characterList = [...responses];
+                    this.isLoading = false;
+
+                    console.log(responses, this.characterList);
+                },
+                (error) => {
+                    console.error('Error fetching characters:', error);
+                    this.isLoading = false;
+                }
+            );
     }
 
     ngOnDestroy(): void {

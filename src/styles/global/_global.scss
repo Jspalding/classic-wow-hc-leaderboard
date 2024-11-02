@@ -1,0 +1,16 @@
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: $primary-font;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: $body-font !important;
+    background: $bg;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}

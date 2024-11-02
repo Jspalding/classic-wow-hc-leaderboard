@@ -1,0 +1,9 @@
+<img class="character-avatar" [src]="avatarSrc" [alt]="character.name" />
+<div>{{ character.name }}</div>
+<div>{{ character.level }}</div>
+<div>{{ character.race.name.en_GB }}</div>
+<div>{{ character.character_class.name.en_GB }}</div>
+<div>{{ character.last_login_timestamp | date : 'short' }}</div>
+<div>{{ character.is_ghost | isDead }}</div>
+<div>{{ character.is_self_found | isSSF }}</div>
+<br />

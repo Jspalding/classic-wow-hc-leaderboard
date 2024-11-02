@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Character } from '../models/character/character.interface';
 import { AuthService } from './auth.service';
+import { Observable } from 'rxjs';
+import { CharacterMedia } from '../models/character/character-media.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -27,12 +29,25 @@ export class CharacterService {
         return headers;
     }
 
-    getCharacterByName(name: string, server: string) {
+    getCharacterByName(name: string, server: string): Observable<Character> {
         name = name.toLowerCase();
         server = server.toLowerCase();
 
         return this.http.get<Character>(
             `${this.apiUrl}/profile/wow/character/${server}/${name}?namespace=${this.namespace}`,
+            { headers: this.createHeaders() }
+        );
+    }
+
+    getCharacterAvatarByName(
+        name: string,
+        server: string
+    ): Observable<CharacterMedia> {
+        name = name.toLowerCase();
+        server = server.toLowerCase();
+
+        return this.http.get<CharacterMedia>(
+            `${this.apiUrl}/profile/wow/character/${server}/${name}/character-media?namespace=${this.namespace}`,
             { headers: this.createHeaders() }
         );
     }
