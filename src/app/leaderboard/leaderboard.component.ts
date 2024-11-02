@@ -23,7 +23,7 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.characterService
-            .getCharacterByName('Smootheyes', 'stitches')
+            .getCharacterByName('smootheyes', 'stitches')
             .pipe(takeUntil(this.destroy$))
             .subscribe((response) => {
                 console.log(response);
