@@ -1,36 +1,39 @@
-<div class="tile">
-    <div class="position" [ngClass]="getPositionColour(index)">
-        <h1>{{ index }}</h1>
+<div class="tile" [ngClass]="getPositionColour(index)">
+    <div class="left-panel">
+        <div class="position" [ngClass]="getPositionColour(index)">
+            <h1>{{ index }}</h1>
+        </div>
+
+        <div class="character-portrait">
+            <img
+                class="character-avatar"
+                [src]="avatarSrc"
+                [alt]="character.name" />
+        </div>
+
+        <div class="character-info">
+            <h4 [ngClass]="character.faction.name.en_GB">
+                {{ character.name }}
+            </h4>
+            <span [ngClass]="character.character_class.name.en_GB">
+                {{ character.level }}
+                {{ character.character_class.name.en_GB }}</span
+            >
+            <span [ngClass]="character.faction.name.en_GB">{{
+                character.race.name.en_GB
+            }}</span>
+        </div>
     </div>
 
-    <div class="character-portrait">
-        <img
-            class="character-avatar"
-            [src]="avatarSrc"
-            [alt]="character.name" />
+    <div class="right-panel">
+        <div class="character-stats">
+            <span class="material-symbols-outlined">check_circle</span>
+            {{ character.is_self_found | isSSF }}
+        </div>
 
-        <!-- <img
-            class="rare-portrait"
-            *ngIf="character.isFirst"
-            [src]="rarePortraitSrc"
-            [alt]="'Rare'" /> -->
+        <div class="last-connected">
+            <span class="material-symbols-outlined">schedule</span>
+            {{ character.last_login_timestamp | date : 'HH:mm - dd/MM/yyyy' }}
+        </div>
     </div>
-
-    <div class="character-info">
-        <h4 [ngClass]="character.faction.name.en_GB">{{ character.name }}</h4>
-        <span [ngClass]="character.character_class.name.en_GB">
-            {{ character.level }}
-            {{ character.character_class.name.en_GB }}</span
-        >
-        <span [ngClass]="character.faction.name.en_GB">{{
-            character.race.name.en_GB
-        }}</span>
-    </div>
-    <!-- <div class="character-stats">
-        <div>{{ character.is_ghost | isDead }}</div>
-        <div>{{ character.is_self_found | isSSF }}</div>
-    </div> -->
-    <div>{{ character.last_login_timestamp | date : 'short' }}</div>
 </div>
-
-<br />

@@ -16,7 +16,8 @@ import { take } from 'rxjs';
 })
 export class LeaderboardTileComponent implements OnInit, OnDestroy {
     constructor(private characterService: CharacterService) {}
-    @Input() character: Character;
+
+    @Input() character!: Character;
     @Input() index: number = 0;
 
     avatarSrc: string = '';

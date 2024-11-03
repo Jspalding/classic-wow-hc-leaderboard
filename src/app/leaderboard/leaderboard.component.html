@@ -32,14 +32,15 @@
     </div>
 
     <div class="main-wrapper">
-        <ng-container *ngIf="!isLoading">
-            <div class="leaderboard-actions">
-                <countdown-btn
-                    [buttonText]="'Refresh'"
-                    [countingText]="'Refresh'"
-                    (onButtonPress)="this.buildCharacterList()"></countdown-btn>
-            </div>
+        <div class="leaderboard-actions">
+            <countdown-btn
+                [buttonText]="'Refresh'"
+                [countingText]="'Refresh'"
+                (onButtonPress)="this.buildCharacterList()"></countdown-btn>
+        </div>
 
+        <page-loader *ngIf="isLoading"></page-loader>
+        <ng-container *ngIf="!isLoading">
             <ng-container *ngFor="let char of characterList; let index = index">
                 <app-leaderboard-tile
                     [character]="char"

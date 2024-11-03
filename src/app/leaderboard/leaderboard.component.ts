@@ -6,11 +6,17 @@ import { Character } from '../core/models/character/character.interface';
 
 import { LeaderboardTileComponent } from './leaderboard-tile/leaderboard-tile.component';
 import { CountdownBtnComponent } from '../shared/countdown-btn/countdown-btn.component';
+import { PageLoaderComponent } from '../shared/page-loader/page-loader.component';
 
 @Component({
     selector: 'app-leaderboard',
     standalone: true,
-    imports: [CommonModule, LeaderboardTileComponent, CountdownBtnComponent],
+    imports: [
+        CommonModule,
+        LeaderboardTileComponent,
+        CountdownBtnComponent,
+        PageLoaderComponent,
+    ],
     templateUrl: './leaderboard.component.html',
     styleUrl: './leaderboard.component.scss',
 })
@@ -26,11 +32,12 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
     destroy$: Subject<void> = new Subject<void>();
 
     ngOnInit(): void {
-        this.isLoading = true;
         this.buildCharacterList();
     }
 
     buildCharacterList() {
+        this.isLoading = true;
+
         const james = this.characterService.getCharacterByName(
             'smootheyes',
             'stitches'
@@ -47,7 +54,7 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
         );
 
         const raph = this.characterService.getCharacterByName(
-            'smootheyes',
+            'rubyreubs',
             'stitches'
         );
 

@@ -3,71 +3,117 @@
 .tile {
     display: flex;
     align-items: center;
-    background: #141416;
-    border-radius: 7px;
-    padding: 0.6rem;
+    justify-content: space-between;
 
-    .position {
-        height: 90px;
-        width: 45px;
-        border-radius: 5px;
-        margin-right: 2rem;
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    padding-right: 2rem;
+    background: c.$dark-bg;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    margin-bottom: 1rem;
 
-        &.first {
-            background-color: #fb3;
-            color: c.$bg;
-        }
-
-        &.second {
-            background-color: #636367;
-            color: c.$bg;
-        }
-
-        &.third {
-            background-color: #cd7f32;
-            color: c.$bg;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
+    &.first {
+        border: 1px solid c.$gold;
     }
 
-    .character-portrait {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
+    &.second {
+        border: 1px solid c.$silver;
+    }
 
-        .character-avatar {
+    &.third {
+        border: 1px solid c.$bronze;
+    }
+
+    .left-panel {
+        display: flex;
+
+        .position {
             height: 84px;
-            width: 84px;
-            border-radius: 50px;
-            margin-right: 2rem;
+            width: 45px;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &.first {
+                background-color: c.$gold;
+                color: c.$bg;
+            }
+
+            &.second {
+                background-color: c.$silver;
+                color: c.$bg;
+            }
+
+            &.third {
+                background-color: c.$bronze;
+                color: c.$bg;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 2rem;
+            }
         }
 
-        .rare-portrait {
-            position: absolute;
-            height: 100px;
-            position: absolute;
-            height: 129px;
-            top: -14px;
-            left: -53px;
+        .character-portrait {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            .character-avatar {
+                height: 84px;
+                width: 84px;
+                margin-right: 2rem;
+            }
+
+            .rare-portrait {
+                position: absolute;
+                height: 100px;
+                position: absolute;
+                height: 129px;
+                top: -14px;
+                left: -53px;
+            }
+        }
+
+        .character-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h4 {
+                font-size: 1.6rem;
+                margin: 0rem;
+            }
+            span {
+                display: block;
+            }
         }
     }
 
-    .character-info {
-        h4 {
-            font-size: 1.6rem;
-            margin: 0rem;
+    .right-panel {
+        font-size: 1.4rem;
+
+        .last-connected,
+        .character-stats {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            font-style: italic;
+
+            span {
+                margin-right: 0.5rem;
+                font-size: 1.4rem;
+            }
         }
-        span {
-            display: block;
+
+        .character-stats {
+            color: c.$green;
+            font-style: normal;
         }
     }
 }
