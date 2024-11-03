@@ -46,5 +46,21 @@ export class LeaderboardTileComponent implements OnInit, OnDestroy {
             );
     }
 
+    getPositionColour(position: number): string {
+        switch (position) {
+            case 1:
+                return 'first';
+
+            case 2:
+                return 'second';
+
+            case 3:
+                return 'third';
+
+            default:
+                return '';
+        }
+    }
+
     ngOnDestroy(): void {}
 }
