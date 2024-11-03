@@ -8,19 +8,20 @@
     </div>
 
     <page-loader *ngIf="isLoading"></page-loader>
+
     <ng-container *ngIf="!isLoading">
         <ng-container *ngFor="let char of characterList; let index = index">
             <app-leaderboard-tile
                 [character]="char"
                 [index]="index + 1"></app-leaderboard-tile>
         </ng-container>
+
+        <div class="graveyard-actions">
+            <h2>Graveyard</h2>
+
+            <ng-container *ngFor="let char of graveyard; let index = index">
+                <app-leaderboard-tile [character]="char"></app-leaderboard-tile>
+            </ng-container>
+        </div>
     </ng-container>
-
-    <div class="graveyard-actions">
-        <h2>Graveyard</h2>
-
-        <ng-container *ngFor="let char of graveyard; let index = index">
-            <app-leaderboard-tile [character]="char"></app-leaderboard-tile>
-        </ng-container>
-    </div>
 </div>

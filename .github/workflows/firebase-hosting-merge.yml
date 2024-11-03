@@ -20,15 +20,15 @@ jobs:
               with:
                   node-version: '19'
 
-            - name: Install Dependencies
-              run: npm i && npm run build
-
             - name: Create Environment File
               env:
                   clientId: ${{ secrets.BNET_CLIENT_ID }}
                   clientSecret: ${{ secrets.BNET_CLIENT_SECRET }}
               run: |
                   echo "export const environment = { production: true, euApiUrl: 'https://eu.api.blizzard.com', authUrl: 'https://oauth.battle.net/token', euProfileNamespace: 'profile-classic1x-eu', clientId: '${clientId}', clientSecret: '${clientSecret}' };" > src/environments/environment.ts
+
+            - name: Install Dependencies
+              run: npm i && npm run build
 
             - uses: FirebaseExtended/action-hosting-deploy@v0
               with:
