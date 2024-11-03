@@ -1,5 +1,9 @@
-<div class="main-container">
+<div class="main">
+    <sidebar></sidebar>
+
     @if (hasAuthToken) {
-    <router-outlet />
+    <div class="main-container">
+        <router-outlet />
+    </div>
     }
 </div>

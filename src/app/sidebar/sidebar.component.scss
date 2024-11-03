@@ -1,0 +1,89 @@
+@use '../../styles/helpers/colours' as c;
+
+.sidebar {
+    height: calc(100vh - 20px);
+    padding: 2rem 1rem 0rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #141416;
+    border-right: 5px solid #9e1e20;
+    border-left: 5px solid #9e1e20;
+    margin-left: 3rem;
+
+    .rules-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 77%;
+
+        .prize-pool {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+
+            h2 {
+                margin-bottom: 0;
+            }
+
+            h4 {
+                font-size: 3rem;
+                margin-bottom: 0.5rem;
+                margin-top: 1rem;
+                color: #e72626;
+            }
+
+            .convert-btn {
+                span {
+                    font-size: 1rem;
+                    margin-right: 0.2rem;
+                }
+
+                &:hover {
+                    background-color: #8f8f8f;
+                }
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1rem;
+                border: 0;
+                background: #4b4b4b;
+                color: #fff;
+                border-radius: 2px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+        }
+
+        .main-rules {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: flex-start;
+
+            h3 {
+                margin: 1rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                span {
+                    margin-right: 0.5rem;
+                    font-size: 1.8rem;
+                }
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0 0 2rem 0;
+                text-align: center;
+                li {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

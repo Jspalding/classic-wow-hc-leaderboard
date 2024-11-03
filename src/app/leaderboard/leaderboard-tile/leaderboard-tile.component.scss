@@ -98,7 +98,8 @@
         font-size: 1.4rem;
 
         .last-connected,
-        .character-stats {
+        .character-ssf,
+        .character-status {
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -111,9 +112,19 @@
             }
         }
 
-        .character-stats {
+        .character-ssf {
+            color: #1b7e00;
+            font-style: normal;
+        }
+
+        .character-status {
             color: c.$green;
             font-style: normal;
+            font-weight: 600;
+
+            &.dead {
+                color: c.$light-red;
+            }
         }
     }
 }

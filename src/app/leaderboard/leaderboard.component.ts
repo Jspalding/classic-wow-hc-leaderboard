@@ -26,8 +26,6 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
     characterList: Character[] = [];
     graveyard: Character[] = [];
 
-    prizePool: string = '£50';
-
     isLoading = false;
     destroy$: Subject<void> = new Subject<void>();
 
@@ -38,55 +36,35 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
     buildCharacterList() {
         this.isLoading = true;
 
-        const james = this.characterService.getCharacterByName(
-            'smootheyes',
-            'stitches'
+        const characters = [
+            { name: 'smootheyes', server: 'stitches' },
+            { name: 'hoofinboofer', server: 'stitches' },
+            { name: 'teezone', server: 'nekrosh' },
+            { name: 'rubyreubs', server: 'stitches' },
+            { name: 'pumpumpalaii', server: 'stitches' },
+            { name: 'pumpumpala', server: 'stitches' },
+            { name: 'wnorhuhno', server: 'stitches' },
+        ];
+
+        const characterRequests = characters.map((character) =>
+            this.characterService.getCharacterByName(
+                character.name,
+                character.server
+            )
         );
 
-        const tom = this.characterService.getCharacterByName(
-            'hoofinboofer',
-            'stitches'
-        );
-
-        const tom2 = this.characterService.getCharacterByName(
-            'teezone',
-            'nekrosh'
-        );
-
-        const raph = this.characterService.getCharacterByName(
-            'rubyreubs',
-            'stitches'
-        );
-
-        const reiss = this.characterService.getCharacterByName(
-            'pumpumpalaii',
-            'stitches'
-        );
-
-        const reiss2 = this.characterService.getCharacterByName(
-            'pumpumpala',
-            'stitches'
-        );
-
-        const reub = this.characterService.getCharacterByName(
-            'wnorhuhno',
-            'stitches'
-        );
-
-        forkJoin([james, tom, tom2, raph, reiss, reiss2, reub])
+        forkJoin(characterRequests)
             .pipe(takeUntil(this.destroy$))
             .subscribe(
                 (responses) => {
                     this.characterList = [...responses];
                     this.characterList = this.sortDescending(
-                        this.characterList
+                        this.getAliveCharacters(this.characterList)
                     );
-                    this.characterList = this.getAliveCharacters(
-                        this.characterList
-                    );
-                    this.characterList[0].isFirst = true;
 
-                    this.graveyard = this.getDeadCharacters(responses);
+                    this.graveyard = this.getDeadCharacters(
+                        this.sortDescending(responses)
+                    );
 
                     console.log(this.characterList);
                     this.isLoading = false;
@@ -116,21 +94,6 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
                 return b.level - a.level;
             }
         ));
-    }
-
-    onConvert() {
-        let currencies: string[] = [
-            '50 massive ones',
-            '50 heavy ones',
-            '50 minor ones',
-            '50 bags',
-            'Why you asking?',
-            '1.5 JustEat orders',
-            '£50',
-        ];
-
-        const randomIndex = Math.floor(Math.random() * currencies.length);
-        this.prizePool = currencies[randomIndex];
     }
 
     ngOnDestroy(): void {

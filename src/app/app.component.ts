@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { AuthService } from './core/services/auth.service';
 import { take } from 'rxjs';
 import { BnetAuthResp } from './core/models/bnet-auth/bnet-auth-response.interface';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet],
+    imports: [RouterOutlet, SidebarComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
 })

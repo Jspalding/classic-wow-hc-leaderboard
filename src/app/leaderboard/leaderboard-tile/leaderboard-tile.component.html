@@ -1,4 +1,4 @@
-<div class="tile" [ngClass]="getPositionColour(index)">
+<div class="tile">
     <div class="left-panel">
         <div class="position" [ngClass]="getPositionColour(index)">
             <h1>{{ index }}</h1>
@@ -26,7 +26,18 @@
     </div>
 
     <div class="right-panel">
-        <div class="character-stats">
+        <div class="character-status" [ngClass]="{ dead: character.is_ghost }">
+            <span *ngIf="!character.is_ghost" class="material-symbols-outlined"
+                >check_circle</span
+            >
+
+            <span *ngIf="character.is_ghost" class="material-symbols-outlined"
+                >cancel</span
+            >
+            {{ character.is_ghost | isDead }}
+        </div>
+
+        <div class="character-ssf">
             <span class="material-symbols-outlined">check_circle</span>
             {{ character.is_self_found | isSSF }}
         </div>

@@ -6,7 +6,7 @@ import { Pipe, type PipeTransform } from '@angular/core';
 })
 export class IsDeadPipe implements PipeTransform {
     transform(value: boolean): string {
-        let isDead: string = 'Dead';
+        let isDead: string = 'Dead - R.I.P';
 
         if (value === false) {
             isDead = 'Alive';

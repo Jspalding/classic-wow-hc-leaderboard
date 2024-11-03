@@ -1,103 +1,25 @@
 @use '../../styles/helpers/colours' as c;
 
 .leaderboard-wrapper {
-    display: flex;
+    flex-grow: 1;
+    margin: 3rem 5rem;
+    overflow-y: scroll;
+    overflow: hidden; /* Hide scrollbars */
 
-    .sidebar {
-        height: calc(100vh - 20px);
-        padding: 2rem 1rem 0rem 1rem;
-        width: 15%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        background: c.$dark-bg;
-
-        .rules-wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 77%;
-
-            .prize-pool {
-                display: flex;
-                align-items: center;
-                flex-direction: column;
-                justify-content: center;
-
-                h2 {
-                    margin-bottom: 0;
-                }
-
-                h4 {
-                    font-size: 3rem;
-                    margin-bottom: 0.5rem;
-                    margin-top: 1rem;
-                    color: c.$green;
-                }
-
-                .convert-btn {
-                    span {
-                        font-size: 1rem;
-                        margin-right: 0.2rem;
-                    }
-
-                    &:hover {
-                        background-color: #8f8f8f;
-                    }
-
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 1rem;
-                    border: 0;
-                    background: #4b4b4b;
-                    color: #fff;
-                    border-radius: 2px;
-                    cursor: pointer;
-                    transition: 0.3s;
-                }
-            }
-
-            .main-rules {
-                display: flex;
-                align-items: center;
-                flex-direction: column;
-                justify-content: flex-start;
-
-                h3 {
-                    margin: 1rem;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-
-                    span {
-                        margin-right: 0.5rem;
-                        font-size: 1.8rem;
-                    }
-                }
-
-                ul {
-                    list-style: none;
-                    padding: 0;
-                    margin: 0 0 2rem 0;
-                    text-align: center;
-                    li {
-                        text-decoration: none;
-                    }
-                }
-            }
+    .leaderboard-actions {
+        h1 {
+            font-size: 3rem;
+            margin: 0;
         }
+
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
     }
 
-    .main-wrapper {
-        flex-grow: 1;
-        margin: 3rem 5rem;
-
-        .leaderboard-actions {
-            width: 100%;
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 1rem;
-        }
+    .graveyard-actions {
+        margin-top: 5rem;
     }
 }
