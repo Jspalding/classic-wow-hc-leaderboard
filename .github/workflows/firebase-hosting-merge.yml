@@ -2,19 +2,40 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
+
 on:
-  push:
-    branches:
-      - master
+    push:
+        branches:
+            - master
+
 jobs:
-  build_and_deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: npm ci && npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CLASSIC_HC_LEADERBOARD }}
-          channelId: live
-          projectId: classic-hc-leaderboard
+    build_and_deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '14'
+
+            - name: Install Dependencies
+              run: npm ci
+
+            - name: Create Environment File
+              env:
+                  clientId: ${{ secrets.BNET_CLIENT_ID }}
+                  clientSecret: ${{ secrets.BNET_CLIENT_SECRET }}
+              run: |
+                  echo "export const environment = { production: true, apiKey: '${API_KEY}', anotherApiKey: '${ANOTHER_API_KEY}' };" > src/environments/environment.prod.ts
+
+            - name: Build Angular App
+              run: npm run build --prod
+
+            - uses: FirebaseExtended/action-hosting-deploy@v0
+              with:
+                  repoToken: ${{ secrets.GITHUB_TOKEN }}
+                  firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CLASSIC_HC_LEADERBOARD }}
+                  channelId: live
+                  projectId: classic-hc-leaderboard

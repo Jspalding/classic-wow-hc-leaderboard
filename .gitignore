@@ -42,5 +42,4 @@ testem.log
 Thumbs.db
 
 # Ignore environment files
-/src/environments/environment.ts
 .firebase/hosting.cHVibGlj.cache
