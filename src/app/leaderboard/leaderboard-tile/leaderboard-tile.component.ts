@@ -21,16 +21,15 @@ export class LeaderboardTileComponent implements OnInit, OnDestroy {
     @Input() index: number = 0;
 
     avatarSrc: string = '';
-    rarePortraitSrc: string = '/assets/img/rare-portrait.png';
 
-    displayIndex: string = '';
+    badge: { roman: string; img: string } = { roman: '', img: '' };
 
     isLoading: boolean = false;
 
     ngOnInit(): void {
         this.isLoading = true;
 
-        this.displayIndex = this.getIndexToNumeral(this.index);
+        this.badge = this.generateBadgeByIndex(this.index);
 
         this.characterService
             .getCharacterAvatarByName(this.character.name, 'stitches')
@@ -51,25 +50,43 @@ export class LeaderboardTileComponent implements OnInit, OnDestroy {
             );
     }
 
-    getIndexToNumeral(index: number): string {
+    generateBadgeByIndex(index: number): { roman: string; img: string } {
         switch (index) {
             case 1:
-                return 'I';
+                return {
+                    roman: 'I',
+                    img: '/assets/img/leaderboard-icon-1.png',
+                };
 
             case 2:
-                return 'II';
+                return {
+                    roman: 'II',
+                    img: '/assets/img/leaderboard-icon-2.png',
+                };
 
             case 3:
-                return 'III';
+                return {
+                    roman: 'III',
+                    img: '/assets/img/leaderboard-icon-3.png',
+                };
 
             case 4:
-                return 'IV';
+                return {
+                    roman: 'IV',
+                    img: '/assets/img/leaderboard-icon-4.png',
+                };
 
             case 5:
-                return 'V';
+                return {
+                    roman: 'V',
+                    img: '/assets/img/leaderboard-icon-5.png',
+                };
 
             default:
-                return '';
+                return {
+                    roman: 'I',
+                    img: '/assets/img/leaderboard-icon-1.png',
+                };
         }
     }
 

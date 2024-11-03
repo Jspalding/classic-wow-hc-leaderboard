@@ -2,8 +2,8 @@
     <div class="left-panel">
         <div class="position" [ngClass]="getPositionColour(index)">
             <div class="badge">
-                <img src="/assets/img/leaderboard-icon-5.png" alt="" />
-                {{ displayIndex }}
+                <img [src]="badge.img" alt="" />
+                {{ badge.roman }}
             </div>
         </div>
 
