@@ -1,9 +1,26 @@
-<img class="character-avatar" [src]="avatarSrc" [alt]="character.name" />
-<div>{{ character.name }}</div>
-<div>{{ character.level }}</div>
-<div>{{ character.race.name.en_GB }}</div>
-<div>{{ character.character_class.name.en_GB }}</div>
-<div>{{ character.last_login_timestamp | date : 'short' }}</div>
-<div>{{ character.is_ghost | isDead }}</div>
-<div>{{ character.is_self_found | isSSF }}</div>
+<div class="tile">
+    <div class="character-portrait">
+        <img
+            class="character-avatar"
+            [src]="avatarSrc"
+            [alt]="character.name" />
+    </div>
+
+    <div class="character-info">
+        <h4 [ngClass]="character.faction.name.en_GB">{{ character.name }}</h4>
+        <span [ngClass]="character.character_class.name.en_GB">
+            {{ character.level }}
+            {{ character.character_class.name.en_GB }}</span
+        >
+        <span [ngClass]="character.faction.name.en_GB">{{
+            character.race.name.en_GB
+        }}</span>
+    </div>
+    <div class="character-stats">
+        <div>{{ character.is_ghost | isDead }}</div>
+        <div>{{ character.is_self_found | isSSF }}</div>
+    </div>
+    <div>{{ character.last_login_timestamp | date : 'short' }}</div>
+</div>
+
 <br />

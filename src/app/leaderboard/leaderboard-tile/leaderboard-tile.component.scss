@@ -1,4 +1,57 @@
-.character-avatar {
-    height: 84px;
-    width: 84px;
+@use '../../../styles/helpers/colours' as c;
+
+.tile {
+    display: flex;
+
+    .character-avatar {
+        height: 84px;
+        width: 84px;
+        border-radius: 50px;
+        margin-right: 2rem;
+    }
+
+    .character-info {
+        h4 {
+            font-size: 1.6rem;
+            margin-bottom: 0rem;
+        }
+        span {
+            display: block;
+        }
+    }
+}
+
+.Druid {
+    color: c.$druid;
+}
+.Hunter {
+    color: c.$hunter;
+}
+.Mage {
+    color: c.$mage;
+}
+.Paladin {
+    color: c.$paladin;
+}
+.Priest {
+    color: c.$priest;
+}
+.Rogue {
+    color: c.$rogue;
+}
+.Shaman {
+    color: c.$shaman;
+}
+.Warlock {
+    color: c.$warlock;
+}
+.Warrior {
+    color: c.$warrior;
+}
+
+.Horde {
+    color: c.$horde;
+}
+.Alliance {
+    color: c.$alliance;
 }

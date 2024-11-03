@@ -17,8 +17,11 @@ import { take } from 'rxjs';
 export class LeaderboardTileComponent implements OnInit, OnDestroy {
     constructor(private characterService: CharacterService) {}
     @Input() character: Character;
+    @Input() isFirst: boolean = false;
 
     avatarSrc: string = '';
+    classSrc: string = '';
+
     isLoading: boolean = false;
 
     ngOnInit(): void {

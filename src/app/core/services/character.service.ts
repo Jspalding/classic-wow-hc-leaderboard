@@ -5,6 +5,7 @@ import { Character } from '../models/character/character.interface';
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
 import { CharacterMedia } from '../models/character/character-media.interface';
+import { CharacterClassMedia } from '../models/character/character-class-media.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -48,6 +49,13 @@ export class CharacterService {
 
         return this.http.get<CharacterMedia>(
             `${this.apiUrl}/profile/wow/character/${server}/${name}/character-media?namespace=${this.namespace}`,
+            { headers: this.createHeaders() }
+        );
+    }
+
+    getCharacterClassIconById(id: number): Observable<CharacterClassMedia> {
+        return this.http.get<CharacterClassMedia>(
+            `${this.apiUrl}/data/wow/media/playable-class/${id}?namespace=${this.namespace}`,
             { headers: this.createHeaders() }
         );
     }
