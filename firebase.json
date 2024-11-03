@@ -1,6 +1,6 @@
 {
     "hosting": {
-        "public": "dist/classic-wow-hc-leaderboard",
+        "public": "dist/classic-wow-hc-leaderboard/browser",
         "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
         "rewrites": [
             {
