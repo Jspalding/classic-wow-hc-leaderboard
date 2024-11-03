@@ -4,7 +4,13 @@
     flex-grow: 1;
     margin: 3rem 5rem;
     overflow-y: scroll;
-    overflow: hidden; /* Hide scrollbars */
+    max-height: calc(100vh - 60px);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
 
     .leaderboard-actions {
         h1 {

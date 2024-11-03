@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     hasAuthToken: boolean = false;
 
     ngOnInit(): void {
-        if (!this.authService.getToken()) {
+        if (!this.authService.getToken() || this.authService.isTokenExpired()) {
             console.log('NO TOKEN - REFRESHING');
             this.authService
                 .authToBnet()
@@ -26,12 +26,13 @@ export class AppComponent implements OnInit {
                 .subscribe((response: BnetAuthResp) => {
                     console.log('auth', response);
                     this.authService.saveToken(
-                        'Bearer ' + response.access_token
+                        'Bearer ' + response.access_token,
+                        response.expires_in
                     );
                     this.hasAuthToken = true;
                 });
         } else {
-            console.log('TOKEN ACTIVE');
+            console.log('TOKEN ACTIVE', this.authService.getToken());
             this.hasAuthToken = true;
         }
     }

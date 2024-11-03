@@ -27,29 +27,52 @@
         display: flex;
 
         .position {
-            height: 84px;
-            width: 45px;
-            border-top-left-radius: 2px;
-            border-bottom-left-radius: 2px;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin: 0 2rem 0 1rem;
+            // height: 84px;
+            // width: 45px;
+            // border-top-left-radius: 2px;
+            // border-bottom-left-radius: 2px;
+            // color: #fff;
+            // display: flex;
+            // align-items: center;
+            // justify-content: center;
 
-            &.first {
-                background-color: c.$gold;
-                color: c.$bg;
+            .badge {
+                // width: 40px;
+                background: #141416;
+                padding: 1rem;
+                border: 2px solid #e72626;
+                border-top: 0;
+                border-bottom: 0;
+                color: #ffffff;
+                border-radius: 1px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                font-family: 'Metamorphous';
+
+                img {
+                    width: 40px;
+                    margin-bottom: 0.2rem;
+                }
             }
 
-            &.second {
-                background-color: c.$silver;
-                color: c.$bg;
-            }
+            // &.first {
+            //     background-color: c.$gold;
+            //     color: c.$bg;
+            // }
 
-            &.third {
-                background-color: c.$bronze;
-                color: c.$bg;
-            }
+            // &.second {
+            //     background-color: c.$silver;
+            //     color: c.$bg;
+            // }
+
+            // &.third {
+            //     background-color: c.$bronze;
+            //     color: c.$bg;
+            // }
 
             h1 {
                 margin: 0;
@@ -67,6 +90,8 @@
                 height: 84px;
                 width: 84px;
                 margin-right: 2rem;
+                border: 3px solid #f0d0d0;
+                border-radius: 47px;
             }
 
             .rare-portrait {

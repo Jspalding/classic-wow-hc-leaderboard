@@ -23,10 +23,14 @@ export class LeaderboardTileComponent implements OnInit, OnDestroy {
     avatarSrc: string = '';
     rarePortraitSrc: string = '/assets/img/rare-portrait.png';
 
+    displayIndex: string = '';
+
     isLoading: boolean = false;
 
     ngOnInit(): void {
         this.isLoading = true;
+
+        this.displayIndex = this.getIndexToNumeral(this.index);
 
         this.characterService
             .getCharacterAvatarByName(this.character.name, 'stitches')
@@ -45,6 +49,28 @@ export class LeaderboardTileComponent implements OnInit, OnDestroy {
                     console.log(error);
                 }
             );
+    }
+
+    getIndexToNumeral(index: number): string {
+        switch (index) {
+            case 1:
+                return 'I';
+
+            case 2:
+                return 'II';
+
+            case 3:
+                return 'III';
+
+            case 4:
+                return 'IV';
+
+            case 5:
+                return 'V';
+
+            default:
+                return '';
+        }
     }
 
     getPositionColour(position: number): string {

@@ -1,7 +1,10 @@
 <div class="tile">
     <div class="left-panel">
         <div class="position" [ngClass]="getPositionColour(index)">
-            <h1>{{ index }}</h1>
+            <div class="badge">
+                <img src="/assets/img/leaderboard-icon-5.png" alt="" />
+                {{ displayIndex }}
+            </div>
         </div>
 
         <div class="character-portrait">
