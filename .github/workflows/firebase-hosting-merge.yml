@@ -28,10 +28,10 @@ jobs:
                   clientId: ${{ secrets.BNET_CLIENT_ID }}
                   clientSecret: ${{ secrets.BNET_CLIENT_SECRET }}
               run: |
-                  echo "export const environment = { production: true, apiKey: '${API_KEY}', anotherApiKey: '${ANOTHER_API_KEY}' };" > src/environments/environment.prod.ts
+                  echo "export const environment = { production: true, apiKey: '${clientId}', anotherApiKey: '${clientSecret}' };" > src/environments/environment.prod.ts
 
             - name: Build Angular App
-              run: npm run build --prod
+              run: ng run build
 
             - uses: FirebaseExtended/action-hosting-deploy@v0
               with:
