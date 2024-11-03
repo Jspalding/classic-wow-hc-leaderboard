@@ -94,10 +94,14 @@
         padding: 1rem;
         flex-direction: row;
         justify-content: center;
-        width: 100%;
-        border-top: 5px solid #9e1e20;
         border-bottom: 5px solid #9e1e20;
-        margin-left: 0; /* Remove left margin */
+        border-right: 0;
+        border-left: 0;
+        margin-left: 0;
+
+        .main-logo {
+            height: 240px;
+        }
 
         .rules-wrapper {
             display: none !important;
