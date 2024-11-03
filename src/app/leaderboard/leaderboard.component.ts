@@ -66,7 +66,6 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
                         this.sortDescending(responses)
                     );
 
-                    console.log(this.characterList);
                     this.isLoading = false;
                 },
                 (error) => {

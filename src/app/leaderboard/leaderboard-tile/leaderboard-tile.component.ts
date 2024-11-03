@@ -36,7 +36,6 @@ export class LeaderboardTileComponent implements OnInit, OnDestroy {
             .pipe(take(1))
             .subscribe(
                 (response: CharacterMedia) => {
-                    console.log(response);
                     this.avatarSrc = response.assets[0].value;
                     this.isLoading = false;
                 },
@@ -45,7 +44,7 @@ export class LeaderboardTileComponent implements OnInit, OnDestroy {
                         this.avatarSrc = '/assets/img/grave.svg';
                     }
 
-                    console.log(error);
+                    console.log('404 handled');
                 }
             );
     }
@@ -84,25 +83,9 @@ export class LeaderboardTileComponent implements OnInit, OnDestroy {
 
             default:
                 return {
-                    roman: 'I',
-                    img: '/assets/img/leaderboard-icon-1.png',
+                    roman: 'R.I.P',
+                    img: '/assets/img/graveyard.png',
                 };
-        }
-    }
-
-    getPositionColour(position: number): string {
-        switch (position) {
-            case 1:
-                return 'first';
-
-            case 2:
-                return 'second';
-
-            case 3:
-                return 'third';
-
-            default:
-                return '';
         }
     }
 
