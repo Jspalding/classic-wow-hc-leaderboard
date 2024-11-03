@@ -130,6 +130,56 @@
     }
 }
 
+@media only screen and (max-width: 768px) {
+    .tile {
+        padding-right: 1rem;
+
+        .position {
+            margin: 0 1rem 0 0.5rem !important;
+
+            .badge {
+                padding: 0.5rem !important;
+
+                img {
+                    width: 25px !important;
+                }
+            }
+        }
+
+        .character-portrait {
+            .character-avatar {
+                height: 45px !important;
+                width: 45px !important;
+                margin-right: 1rem !important;
+                border: 2px solid #f0d0d0 !important;
+            }
+        }
+
+        .character-info {
+            font-size: 1rem;
+
+            h4 {
+                font-size: 1.2rem !important;
+            }
+        }
+
+        .right-panel {
+            font-size: 1rem !important;
+
+            .character-status,
+            .character-ssf,
+            .last-connected {
+                line-height: 1.5rem;
+
+                span {
+                    margin-right: 0.5rem;
+                    font-size: 1.2rem !important;
+                }
+            }
+        }
+    }
+}
+
 .Druid {
     color: c.$druid;
 }
