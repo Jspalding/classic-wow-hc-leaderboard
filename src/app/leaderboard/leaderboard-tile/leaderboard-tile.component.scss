@@ -2,18 +2,47 @@
 
 .tile {
     display: flex;
+    align-items: center;
+    background: #141416;
+    border-radius: 7px;
+    padding: 1rem;
 
-    .character-avatar {
-        height: 84px;
-        width: 84px;
-        border-radius: 50px;
-        margin-right: 2rem;
+    .position {
+        margin: 0 3rem 0 2rem;
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+    }
+
+    .character-portrait {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        .character-avatar {
+            height: 84px;
+            width: 84px;
+            border-radius: 50px;
+            margin-right: 2rem;
+        }
+
+        .rare-portrait {
+            position: absolute;
+            height: 100px;
+            position: absolute;
+            height: 129px;
+            top: -14px;
+            left: -53px;
+        }
     }
 
     .character-info {
         h4 {
             font-size: 1.6rem;
-            margin-bottom: 0rem;
+            margin: 0rem;
         }
         span {
             display: block;

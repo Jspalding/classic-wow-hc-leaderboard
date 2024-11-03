@@ -5,11 +5,12 @@ import { forkJoin, Subject, takeUntil } from 'rxjs';
 import { Character } from '../core/models/character/character.interface';
 
 import { LeaderboardTileComponent } from './leaderboard-tile/leaderboard-tile.component';
+import { CountdownBtnComponent } from '../shared/countdown-btn/countdown-btn.component';
 
 @Component({
     selector: 'app-leaderboard',
     standalone: true,
-    imports: [CommonModule, LeaderboardTileComponent],
+    imports: [CommonModule, LeaderboardTileComponent, CountdownBtnComponent],
     templateUrl: './leaderboard.component.html',
     styleUrl: './leaderboard.component.scss',
 })
@@ -17,13 +18,19 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
     constructor(private characterService: CharacterService) {}
 
     characterList: Character[] = [];
+    graveyard: Character[] = [];
 
     prizePool: string = '£50';
 
-    isLoading = true;
+    isLoading = false;
     destroy$: Subject<void> = new Subject<void>();
 
     ngOnInit(): void {
+        this.isLoading = true;
+        this.buildCharacterList();
+    }
+
+    buildCharacterList() {
         const james = this.characterService.getCharacterByName(
             'smootheyes',
             'stitches'
@@ -64,15 +71,44 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
             .subscribe(
                 (responses) => {
                     this.characterList = [...responses];
-                    this.isLoading = false;
+                    this.characterList = this.sortDescending(
+                        this.characterList
+                    );
+                    this.characterList = this.getAliveCharacters(
+                        this.characterList
+                    );
+                    this.characterList[0].isFirst = true;
 
-                    console.log(responses, this.characterList);
+                    this.graveyard = this.getDeadCharacters(responses);
+
+                    console.log(this.characterList);
+                    this.isLoading = false;
                 },
                 (error) => {
                     console.error('Error fetching characters:', error);
                     this.isLoading = false;
                 }
             );
+    }
+
+    getAliveCharacters(characterList: Character[]) {
+        return (characterList = characterList.filter((character) => {
+            return !character.is_ghost;
+        }));
+    }
+
+    getDeadCharacters(characterList: Character[]) {
+        return (characterList = characterList.filter((character) => {
+            return character.is_ghost;
+        }));
+    }
+
+    sortDescending(characterList: Character[]) {
+        return (characterList = characterList.sort(
+            (a: Character, b: Character) => {
+                return b.level - a.level;
+            }
+        ));
     }
 
     onConvert() {

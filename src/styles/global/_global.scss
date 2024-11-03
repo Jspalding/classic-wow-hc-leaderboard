@@ -14,3 +14,42 @@ h1 {
     font-size: 1.8rem;
     font-weight: 600;
 }
+
+button {
+    &:hover {
+        background-color: #8f8f8f;
+    }
+
+    &:disabled {
+        opacity: 0.2;
+        cursor: not-allowed;
+    }
+
+    &.btn {
+        font-size: 1.6rem;
+        padding: 0.5rem 1.5rem;
+
+        span {
+            font-size: 1.6rem;
+            margin-right: 0.5rem;
+        }
+    }
+
+    &.btn-sm {
+        font-size: 1rem;
+
+        span {
+            font-size: 1rem;
+        }
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    background: #4b4b4b;
+    color: #fff;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+}

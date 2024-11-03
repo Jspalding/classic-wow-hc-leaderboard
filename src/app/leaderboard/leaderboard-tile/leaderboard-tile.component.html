@@ -1,9 +1,19 @@
 <div class="tile">
+    <div class="position">
+        <h1>{{ index }}</h1>
+    </div>
+
     <div class="character-portrait">
         <img
             class="character-avatar"
             [src]="avatarSrc"
             [alt]="character.name" />
+
+        <!-- <img
+            class="rare-portrait"
+            *ngIf="character.isFirst"
+            [src]="rarePortraitSrc"
+            [alt]="'Rare'" /> -->
     </div>
 
     <div class="character-info">
@@ -16,10 +26,10 @@
             character.race.name.en_GB
         }}</span>
     </div>
-    <div class="character-stats">
+    <!-- <div class="character-stats">
         <div>{{ character.is_ghost | isDead }}</div>
         <div>{{ character.is_self_found | isSSF }}</div>
-    </div>
+    </div> -->
     <div>{{ character.last_login_timestamp | date : 'short' }}</div>
 </div>
 

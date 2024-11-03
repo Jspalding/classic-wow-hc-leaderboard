@@ -90,5 +90,12 @@
     .main-wrapper {
         flex-grow: 1;
         margin: 3rem 5rem;
+
+        .leaderboard-actions {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+        }
     }
 }

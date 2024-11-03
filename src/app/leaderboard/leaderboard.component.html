@@ -9,7 +9,7 @@
             <div class="prize-pool">
                 <h2>Prize pool</h2>
                 <h4>{{ prizePool }}</h4>
-                <button class="convert-btn" (click)="onConvert()">
+                <button class="btn-sm" (click)="onConvert()">
                     <span class="material-symbols-outlined">autorenew</span>
                     Convert
                 </button>
@@ -33,8 +33,17 @@
 
     <div class="main-wrapper">
         <ng-container *ngIf="!isLoading">
-            <ng-container *ngFor="let char of characterList">
-                <app-leaderboard-tile [character]="char"></app-leaderboard-tile>
+            <div class="leaderboard-actions">
+                <countdown-btn
+                    [buttonText]="'Refresh'"
+                    [countingText]="'Refresh'"
+                    (onButtonPress)="this.buildCharacterList()"></countdown-btn>
+            </div>
+
+            <ng-container *ngFor="let char of characterList; let index = index">
+                <app-leaderboard-tile
+                    [character]="char"
+                    [index]="index + 1"></app-leaderboard-tile>
             </ng-container>
         </ng-container>
     </div>

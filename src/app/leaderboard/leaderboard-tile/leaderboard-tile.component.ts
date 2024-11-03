@@ -17,10 +17,10 @@ import { take } from 'rxjs';
 export class LeaderboardTileComponent implements OnInit, OnDestroy {
     constructor(private characterService: CharacterService) {}
     @Input() character: Character;
-    @Input() isFirst: boolean = false;
+    @Input() index: number = 0;
 
     avatarSrc: string = '';
-    classSrc: string = '';
+    rarePortraitSrc: string = '/assets/img/rare-portrait.png';
 
     isLoading: boolean = false;
 
