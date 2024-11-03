@@ -7,3 +7,15 @@
         flex-grow: 1;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .main {
+        display: grid;
+        grid-template-columns: 1fr;
+        height: auto;
+
+        .main-container {
+            flex-grow: 1;
+        }
+    }
+}
