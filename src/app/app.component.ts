@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
                     this.hasAuthToken = true;
                 });
         } else {
-            console.log('TOKEN ACTIVE', this.authService.getToken());
+            console.log('TOKEN ACTIVE');
             this.hasAuthToken = true;
         }
     }
