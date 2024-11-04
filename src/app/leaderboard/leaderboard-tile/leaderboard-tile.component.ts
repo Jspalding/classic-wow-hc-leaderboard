@@ -84,7 +84,7 @@ export class LeaderboardTileComponent implements OnInit, OnDestroy {
             default:
                 return {
                     roman: 'R.I.P',
-                    img: '/assets/img/graveyard.png',
+                    img: '/assets/img/graveyard.webp',
                 };
         }
     }
