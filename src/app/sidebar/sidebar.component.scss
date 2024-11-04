@@ -6,9 +6,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: #141416;
-    border-right: 5px solid #9e1e20;
-    border-left: 5px solid #9e1e20;
+    background: c.$dark-bg;
+    border-right: 5px solid c.$dark-red;
+    border-left: 5px solid c.$dark-red;
     margin-left: 3rem;
 
     .rules-wrapper {
@@ -31,7 +31,7 @@
                 font-size: 3rem;
                 margin-bottom: 0.5rem;
                 margin-top: 1rem;
-                color: #e72626;
+                color: c.$light-red;
             }
 
             .convert-btn {
@@ -94,7 +94,7 @@
         padding: 1rem;
         flex-direction: row;
         justify-content: center;
-        border-bottom: 5px solid #9e1e20;
+        border-bottom: 5px solid c.$dark-red;
         border-right: 0;
         border-left: 0;
         margin-left: 0;

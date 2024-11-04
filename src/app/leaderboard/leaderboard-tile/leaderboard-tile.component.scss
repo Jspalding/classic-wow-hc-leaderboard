@@ -4,11 +4,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding-right: 2rem;
     background: c.$dark-bg;
-    border-radius: 4px;
-    border: 1px solid transparent;
     margin-bottom: 1rem;
 
     &.first {
@@ -27,25 +24,24 @@
         display: flex;
 
         .position {
-            margin: 0 2rem 0 1rem;
+            margin: 0 2rem 0 0;
 
             .badge {
-                background: #141416;
-                padding: 1rem;
-                border: 2px solid #e72626;
+                background: c.$dark-bg;
+                padding: 0.5rem 0rem;
+                border: 2px solid c.$dark-red;
                 border-top: 0;
                 border-bottom: 0;
                 color: #ffffff;
-                border-radius: 1px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-
                 font-family: 'Metamorphous';
+                width: 80px;
 
                 img {
-                    width: 40px;
+                    height: 62px;
                     margin-bottom: 0.2rem;
                 }
             }
@@ -61,7 +57,7 @@
                 height: 80px;
                 width: 80px;
                 margin-right: 2rem;
-                border: 3px solid #f0d0d0;
+                border: 3px solid #4b4b4b;
                 border-radius: 47px;
             }
 
@@ -130,14 +126,15 @@
         padding-right: 1rem;
 
         .position {
-            margin: 0 1rem 0 0.5rem !important;
+            margin: 0 1rem 0 0 !important;
 
             .badge {
                 font-size: 1.2rem;
                 padding: 0.5rem !important;
+                width: 25px !important;
 
                 img {
-                    width: 25px !important;
+                    height: 30px !important;
                 }
             }
         }
