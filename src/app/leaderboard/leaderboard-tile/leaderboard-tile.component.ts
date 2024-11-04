@@ -54,31 +54,31 @@ export class LeaderboardTileComponent implements OnInit, OnDestroy {
             case 1:
                 return {
                     roman: 'I',
-                    img: '/assets/img/leaderboard-icon-1.png',
+                    img: '/assets/img/leaderboard-icon-1.webp',
                 };
 
             case 2:
                 return {
                     roman: 'II',
-                    img: '/assets/img/leaderboard-icon-2.png',
+                    img: '/assets/img/leaderboard-icon-2.webp',
                 };
 
             case 3:
                 return {
                     roman: 'III',
-                    img: '/assets/img/leaderboard-icon-3.png',
+                    img: '/assets/img/leaderboard-icon-3.webp',
                 };
 
             case 4:
                 return {
                     roman: 'IV',
-                    img: '/assets/img/leaderboard-icon-4.png',
+                    img: '/assets/img/leaderboard-icon-4.webp',
                 };
 
             case 5:
                 return {
                     roman: 'V',
-                    img: '/assets/img/leaderboard-icon-5.png',
+                    img: '/assets/img/leaderboard-icon-5.webp',
                 };
 
             default:
