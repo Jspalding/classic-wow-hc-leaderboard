@@ -1,0 +1,9 @@
+<div class="icon">
+    <a
+        [href]="'https://www.wowhead.com/classic/item=' + item.item.id"
+        [attr.data-wowhead]="wowHeadTooltip"
+        [ngClass]="item.quality.type"
+        target="_blank">
+        <img [src]="iconSrc" [alt]="item.name.en_GB" />
+    </a>
+</div>

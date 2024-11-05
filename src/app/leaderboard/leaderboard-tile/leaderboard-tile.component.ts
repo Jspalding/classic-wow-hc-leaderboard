@@ -6,11 +6,19 @@ import { IsSSFPipe } from '../../core/pipes/isSSF.pipe';
 import { CharacterService } from '../../core/services/character.service';
 import { CharacterMedia } from '../../core/models/character/character-media.interface';
 import { take } from 'rxjs';
+import { LeaderboardArmouryComponent } from './leaderboard-armoury/leaderboard-armoury.component';
+import { ArmouryItemSlotComponent } from './leaderboard-armoury/armoury-item-slot/armoury-item-slot.component';
 
 @Component({
-    selector: 'app-leaderboard-tile',
+    selector: 'leaderboard-tile',
     standalone: true,
-    imports: [CommonModule, IsDeadPipe, IsSSFPipe],
+    imports: [
+        CommonModule,
+        IsDeadPipe,
+        IsSSFPipe,
+        LeaderboardArmouryComponent,
+        ArmouryItemSlotComponent,
+    ],
     templateUrl: './leaderboard-tile.component.html',
     styleUrl: './leaderboard-tile.component.scss',
 })
@@ -23,6 +31,8 @@ export class LeaderboardTileComponent implements OnInit, OnDestroy {
     avatarSrc: string = '';
 
     badge: { roman: string; img: string } = { roman: '', img: '' };
+
+    showArmory: boolean = false;
 
     isLoading: boolean = false;
 
@@ -87,6 +97,10 @@ export class LeaderboardTileComponent implements OnInit, OnDestroy {
                     img: '/assets/img/graveyard.webp',
                 };
         }
+    }
+
+    onCharacterSelect() {
+        this.showArmory = !this.showArmory;
     }
 
     ngOnDestroy(): void {}

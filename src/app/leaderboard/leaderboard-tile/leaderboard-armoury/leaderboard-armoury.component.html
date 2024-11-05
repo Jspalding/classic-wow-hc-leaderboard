@@ -1,0 +1,25 @@
+<div class="armoury">
+    <div class="banner"></div>
+
+    <div class="loading-container" *ngIf="isLoading">
+        <inline-loader></inline-loader>
+    </div>
+
+    <ng-container *ngIf="!isLoading">
+        <div class="content">
+            <div class="armour">
+                <armoury-item-slot
+                    *ngFor="let item of armour; let index = index"
+                    [item]="item">
+                </armoury-item-slot>
+            </div>
+
+            <div class="weapons">
+                <armoury-item-slot
+                    *ngFor="let item of weapons; let index = index"
+                    [item]="item">
+                </armoury-item-slot>
+            </div>
+        </div>
+    </ng-container>
+</div>

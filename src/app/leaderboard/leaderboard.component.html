@@ -11,16 +11,16 @@
 
     <ng-container *ngIf="!isLoading">
         <ng-container *ngFor="let char of characterList; let index = index">
-            <app-leaderboard-tile
+            <leaderboard-tile
                 [character]="char"
-                [index]="index + 1"></app-leaderboard-tile>
+                [index]="index + 1"></leaderboard-tile>
         </ng-container>
 
         <div class="graveyard-actions">
             <h2>Graveyard</h2>
 
             <ng-container *ngFor="let char of graveyard; let index = index">
-                <app-leaderboard-tile [character]="char"></app-leaderboard-tile>
+                <leaderboard-tile [character]="char"></leaderboard-tile>
             </ng-container>
         </div>
     </ng-container>

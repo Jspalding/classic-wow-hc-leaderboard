@@ -1,4 +1,4 @@
-<div class="tile">
+<div class="tile" (click)="onCharacterSelect()" [ngClass]="{ mb: !showArmory }">
     <div class="left-panel">
         <div class="position">
             <div class="badge">
@@ -51,3 +51,9 @@
         </div>
     </div>
 </div>
+
+@if (showArmory) {
+<ng-container>
+    <leaderboard-armoury [selectedCharacter]="character"></leaderboard-armoury>
+</ng-container>
+}

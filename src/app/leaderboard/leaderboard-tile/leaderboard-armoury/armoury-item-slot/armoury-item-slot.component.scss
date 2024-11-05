@@ -1,0 +1,25 @@
+@use '../../../../../styles/helpers/colours' as c;
+
+.icon {
+    a {
+        display: flex;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        height: 35px;
+        width: 35px;
+        margin-right: 0.5rem;
+
+        &.POOR {
+            border-color: c.$poor-item;
+        }
+        &.COMMON {
+            border-color: c.$common-item;
+        }
+        &.UNCOMMON {
+            border-color: c.$uncommon-item;
+        }
+        &.RARE {
+            border-color: c.$rare-item;
+        }
+    }
+}

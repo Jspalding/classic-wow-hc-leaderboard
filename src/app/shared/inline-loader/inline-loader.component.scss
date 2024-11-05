@@ -1,0 +1,33 @@
+@use '../../../styles/helpers/colours' as c;
+
+.spinner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.second-spinner {
+    border: 5px solid transparent;
+    border-top: 5px solid #a61d1d;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1.5s ease-in-out infinite;
+}
+
+.spinner-text {
+    margin-top: 10px;
+    font-weight: 700;
+    color: #f62928;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

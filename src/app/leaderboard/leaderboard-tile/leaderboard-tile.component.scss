@@ -6,7 +6,11 @@
     justify-content: space-between;
     padding-right: 2rem;
     background: c.$dark-bg;
-    margin-bottom: 1rem;
+    cursor: pointer;
+
+    &.mb {
+        margin-bottom: 1rem;
+    }
 
     &.first {
         border: 1px solid c.$gold;

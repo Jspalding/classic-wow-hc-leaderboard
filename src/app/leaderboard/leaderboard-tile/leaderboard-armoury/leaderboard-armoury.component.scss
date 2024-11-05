@@ -1,0 +1,44 @@
+@use '../../../../styles/helpers/colours' as c;
+
+.armoury {
+    display: flex;
+    background: c.$dark-bg;
+    margin-bottom: 1rem;
+
+    .banner {
+        width: 80px;
+        border-right: 2px solid c.$dark-red;
+        border-left: 2px solid c.$dark-red;
+    }
+
+    .loading-container {
+        width: 94%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 0rem;
+    }
+
+    .content {
+        display: flex;
+        padding: 1rem 0;
+        margin-left: 2rem;
+
+        .armour {
+            display: flex;
+            margin-right: 2rem;
+        }
+
+        .weapons {
+            display: flex;
+        }
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    .armoury {
+        .banner {
+            width: 35px;
+        }
+    }
+}
