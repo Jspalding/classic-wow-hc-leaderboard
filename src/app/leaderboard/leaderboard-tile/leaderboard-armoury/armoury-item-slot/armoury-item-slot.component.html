@@ -1,5 +1,7 @@
 <div class="icon">
+    <inline-loader *ngIf="isLoading"></inline-loader>
     <a
+        *ngIf="!isLoading"
         [href]="'https://www.wowhead.com/classic/item=' + item.item.id"
         [attr.data-wowhead]="wowHeadTooltip"
         [ngClass]="item.quality.type"

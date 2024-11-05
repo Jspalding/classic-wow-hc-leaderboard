@@ -10,17 +10,17 @@
 
 .second-spinner {
     border: 5px solid transparent;
-    border-top: 5px solid #a61d1d;
+    border-top: 5px solid c.$dark-red;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     animation: spin 1.5s ease-in-out infinite;
 }
 
 .spinner-text {
     margin-top: 10px;
     font-weight: 700;
-    color: #f62928;
+    color: c.$light-red;
 }
 
 @keyframes spin {
