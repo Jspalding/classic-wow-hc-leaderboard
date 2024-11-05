@@ -7,18 +7,28 @@
 
     <ng-container *ngIf="!isLoading">
         <div class="content">
-            <div class="armour">
-                <armoury-item-slot
-                    *ngFor="let item of armour; let index = index"
-                    [item]="item">
-                </armoury-item-slot>
+            <div class="equipment">
+                <div class="armour">
+                    <armoury-item-slot
+                        *ngFor="let item of armour; let index = index"
+                        [item]="item">
+                    </armoury-item-slot>
+                </div>
+
+                <div class="weapons">
+                    <armoury-item-slot
+                        *ngFor="let item of weapons; let index = index"
+                        [item]="item">
+                    </armoury-item-slot>
+                </div>
             </div>
 
-            <div class="weapons">
-                <armoury-item-slot
-                    *ngFor="let item of weapons; let index = index"
-                    [item]="item">
-                </armoury-item-slot>
+            <div class="stats">
+                <armoury-exp-bar
+                    [level]="selectedCharacter.level"
+                    [currentExp]="
+                        selectedCharacter.experience
+                    "></armoury-exp-bar>
             </div>
         </div>
     </ng-container>

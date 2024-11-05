@@ -92,40 +92,57 @@
 
     .right-panel {
         font-size: 1.4rem;
+        display: flex;
 
-        .last-connected,
-        .character-ssf,
-        .character-status {
+        .character-vitals {
             display: flex;
-            justify-content: flex-start;
-            align-items: center;
+            flex-direction: column;
+            justify-content: center;
 
-            font-style: italic;
+            .last-connected,
+            .character-ssf,
+            .character-status {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                font-style: italic;
 
-            span {
-                margin-right: 0.5rem;
-                font-size: 1.4rem;
+                span {
+                    margin-right: 0.5rem;
+                    font-size: 1.4rem;
+                }
+            }
+
+            .character-ssf {
+                color: #1b7e00;
+                font-style: normal;
+            }
+
+            .character-status {
+                color: c.$green;
+                font-style: normal;
+                font-weight: 600;
+
+                &.dead {
+                    color: c.$light-red;
+                }
             }
         }
 
-        .character-ssf {
-            color: #1b7e00;
-            font-style: normal;
-        }
+        .expander {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 2rem;
 
-        .character-status {
-            color: c.$green;
-            font-style: normal;
-            font-weight: 600;
-
-            &.dead {
-                color: c.$light-red;
+            .expander-icon {
+                font-size: 3rem;
             }
         }
     }
 }
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 1365px) {
     .tile {
         padding-right: 1rem;
 
@@ -171,6 +188,12 @@
                 span {
                     margin-right: 0.5rem;
                     font-size: 1.2rem !important;
+                }
+            }
+
+            .expander {
+                .expander-icon {
+                    font-size: 2rem;
                 }
             }
         }

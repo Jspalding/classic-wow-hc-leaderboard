@@ -1,12 +1,12 @@
 @use '../../../../styles/helpers/colours' as c;
 
 .armoury {
-    display: flex;
+    display: grid;
+    grid-template-columns: 84px 1fr;
     background: c.$dark-bg;
     margin-bottom: 1rem;
 
     .banner {
-        width: 80px;
         border-right: 2px solid c.$dark-red;
         border-left: 2px solid c.$dark-red;
     }
@@ -21,38 +21,55 @@
 
     .content {
         display: flex;
-        padding: 1rem 0;
-        margin-left: 2rem;
+        justify-content: space-between;
 
-        .armour {
+        .equipment {
             display: flex;
-            margin-right: 2rem;
+            padding: 1rem 0;
+            margin-left: 2rem;
+
+            .armour {
+                display: flex;
+                margin-right: 2rem;
+            }
+
+            .weapons {
+                display: flex;
+            }
         }
 
-        .weapons {
-            display: flex;
+        .stats {
+            margin-right: 1rem;
         }
     }
 }
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 1365px) {
     .armoury {
-        .banner {
-            width: 36px;
-        }
+        display: grid;
+        grid-template-columns: 39px 1fr;
 
         .content {
-            display: flex;
-            padding: 1rem 0;
-            margin-left: 1rem;
-            align-items: flex-start;
-            justify-content: center;
             flex-direction: column;
-            width: 91%;
-            margin-right: 0;
 
-            .weapons {
-                margin-top: 0.5rem;
+            .equipment {
+                display: flex;
+                padding: 1rem 0;
+                margin-left: 1rem;
+                align-items: flex-start;
+                justify-content: center;
+                flex-direction: column;
+                width: 91%;
+                margin-right: 0;
+
+                .weapons {
+                    margin-top: 0.5rem;
+                }
+            }
+
+            .stats {
+                margin-left: 1rem;
+                padding-bottom: 1rem;
             }
         }
     }

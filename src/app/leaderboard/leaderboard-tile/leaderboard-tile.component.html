@@ -20,8 +20,8 @@
             </h4>
             <span [ngClass]="character.character_class.name.en_GB">
                 {{ character.level }}
-                {{ character.character_class.name.en_GB }}</span
-            >
+                {{ character.character_class.name.en_GB }}
+            </span>
             <span [ngClass]="character.faction.name.en_GB">{{
                 character.race.name.en_GB
             }}</span>
@@ -29,25 +29,48 @@
     </div>
 
     <div class="right-panel">
-        <div class="character-status" [ngClass]="{ dead: character.is_ghost }">
-            <span *ngIf="!character.is_ghost" class="material-symbols-outlined"
-                >check_circle</span
-            >
+        <div class="character-vitals">
+            <div
+                class="character-status"
+                [ngClass]="{ dead: character.is_ghost }">
+                <span
+                    *ngIf="!character.is_ghost"
+                    class="material-symbols-outlined"
+                    >check_circle</span
+                >
 
-            <span *ngIf="character.is_ghost" class="material-symbols-outlined"
-                >cancel</span
-            >
-            {{ character.is_ghost | isDead }}
+                <span
+                    *ngIf="character.is_ghost"
+                    class="material-symbols-outlined"
+                    >cancel</span
+                >
+                {{ character.is_ghost | isDead }}
+            </div>
+
+            <div class="character-ssf">
+                <span class="material-symbols-outlined">check_circle</span>
+                {{ character.is_self_found | isSSF }}
+            </div>
+
+            <div class="last-connected">
+                <span class="material-symbols-outlined">schedule</span>
+                {{
+                    character.last_login_timestamp | date : 'HH:mm - dd/MM/yyyy'
+                }}
+            </div>
         </div>
 
-        <div class="character-ssf">
-            <span class="material-symbols-outlined">check_circle</span>
-            {{ character.is_self_found | isSSF }}
-        </div>
-
-        <div class="last-connected">
-            <span class="material-symbols-outlined">schedule</span>
-            {{ character.last_login_timestamp | date : 'HH:mm - dd/MM/yyyy' }}
+        <div class="expander">
+            <span
+                class="material-symbols-outlined expander-icon"
+                *ngIf="!showArmory"
+                >keyboard_arrow_right
+            </span>
+            <span
+                class="material-symbols-outlined expander-icon"
+                *ngIf="showArmory"
+                >keyboard_arrow_down
+            </span>
         </div>
     </div>
 </div>

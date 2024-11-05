@@ -9,11 +9,17 @@ import { Character } from '../../../core/models/character/character.interface';
 import { take } from 'rxjs';
 import { ArmouryItemSlotComponent } from './armoury-item-slot/armoury-item-slot.component';
 import { InlineLoaderComponent } from '../../../shared/inline-loader/inline-loader.component';
+import { ArmouryExpBarComponent } from './armoury-exp-bar/armoury-exp-bar.component';
 
 @Component({
     selector: 'leaderboard-armoury',
     standalone: true,
-    imports: [CommonModule, InlineLoaderComponent, ArmouryItemSlotComponent],
+    imports: [
+        CommonModule,
+        InlineLoaderComponent,
+        ArmouryItemSlotComponent,
+        ArmouryExpBarComponent,
+    ],
     templateUrl: './leaderboard-armoury.component.html',
     styleUrl: './leaderboard-armoury.component.scss',
 })
