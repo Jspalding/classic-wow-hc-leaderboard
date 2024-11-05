@@ -90,6 +90,10 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
     sortDescending(characterList: Character[]) {
         return (characterList = characterList.sort(
             (a: Character, b: Character) => {
+                if (b.level === a.level) {
+                    return b.experience - a.experience;
+                }
+
                 return b.level - a.level;
             }
         ));
