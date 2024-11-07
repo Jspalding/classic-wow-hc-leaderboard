@@ -40,7 +40,7 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
             { name: 'smootheyes', server: 'stitches' },
             { name: 'hoofinboofer', server: 'stitches' },
             { name: 'teezone', server: 'nekrosh' },
-            { name: 'tentensandim', server: 'stitches' },
+            // { name: 'tentensandim', server: 'stitches' },
             { name: 'rubyreubs', server: 'stitches' },
             { name: 'pumpumpalaii', server: 'stitches' },
             { name: 'pumpumpala', server: 'stitches' },
