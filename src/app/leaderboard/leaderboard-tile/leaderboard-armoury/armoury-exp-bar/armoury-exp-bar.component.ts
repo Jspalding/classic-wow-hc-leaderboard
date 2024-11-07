@@ -28,7 +28,5 @@ export class ArmouryExpBarComponent implements OnInit {
                 (this.currentExp / this.levelInfo.exp) * 100
             );
         }
-
-        console.log('req exp', this.levelInfo, this.levelPercentage, '%');
     }
 }
