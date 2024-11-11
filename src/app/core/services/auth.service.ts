@@ -46,7 +46,7 @@ export class AuthService {
 
     ensureValidToken(): Observable<string | null> {
         if (this.isTokenExpired()) {
-            console.log('TOKEN EXPIRED-REFRESHING');
+            console.log('**TOKEN EXPIRED - REFRESHING**');
 
             return this.authToBnet().pipe(
                 switchMap((response: BnetAuthResp) => {
@@ -63,7 +63,6 @@ export class AuthService {
                 })
             );
         } else {
-            console.log('Token valid');
             return of(this.getToken());
         }
     }
