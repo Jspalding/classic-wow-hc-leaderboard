@@ -46,6 +46,7 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
             { name: 'pumpumpala', server: 'stitches' },
             { name: 'oysqdnzyr', server: 'stitches' },
             { name: 'wnorhuhno', server: 'stitches' },
+            { name: 'jakepaulgoat', server: 'stitches' },
         ];
 
         const characterRequests = characters.map((character) =>
