@@ -26,7 +26,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
     private timerSub: Subscription | undefined;
 
     ngOnInit(): void {
-        this.timerSub = interval(1).subscribe(() => {
+        this.timerSub = interval(500).subscribe(() => {
             this.updateCountdown();
         });
     }
