@@ -24,13 +24,14 @@
             justify-content: center;
 
             h2 {
+                font-size: 1.6rem;
                 margin-bottom: 0;
             }
 
             h4 {
                 font-size: 3rem;
                 margin-bottom: 0.5rem;
-                margin-top: 1rem;
+                margin-top: 0;
                 color: c.$light-red;
             }
 
@@ -92,19 +93,23 @@
     .sidebar {
         height: auto;
         padding: 1rem;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
         border-bottom: 5px solid c.$dark-red;
         border-right: 0;
         border-left: 0;
         margin-left: 0;
 
         .main-logo {
-            height: 240px;
+            width: 330px;
         }
 
         .rules-wrapper {
-            display: none !important;
+            .prize-pool,
+            .main-rules {
+                display: none !important;
+            }
         }
     }
 }

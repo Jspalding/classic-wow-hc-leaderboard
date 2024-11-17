@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { CountdownComponent } from './countdown-timer/countdown-timer.component';
 
 @Component({
     selector: 'sidebar',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, CountdownComponent],
     templateUrl: './sidebar.component.html',
     styleUrl: './sidebar.component.scss',
 })

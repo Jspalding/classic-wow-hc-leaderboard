@@ -5,13 +5,17 @@
         alt="WoW Classic HC SSF Dubz Championship" />
 
     <div class="rules-wrapper">
-        <div class="prize-pool">
-            <h2>Prize pool</h2>
-            <h4>{{ prizePool }}</h4>
-            <button class="btn-sm" (click)="onConvert()">
-                <span class="material-symbols-outlined">autorenew</span>
-                Convert
-            </button>
+        <div class="top-content">
+            <countdown-timer></countdown-timer>
+
+            <div class="prize-pool">
+                <h2>Prize pool</h2>
+                <h4>{{ prizePool }}</h4>
+                <button class="btn-sm" (click)="onConvert()">
+                    <span class="material-symbols-outlined">autorenew</span>
+                    Convert
+                </button>
+            </div>
         </div>
 
         <div class="main-rules">
