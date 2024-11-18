@@ -16,7 +16,7 @@
 
         <div class="character-info">
             <h4 [ngClass]="character.faction.name.en_GB">
-                {{ character.name }}
+                {{ character.name }} <i>({{ character.playerName }})</i>
             </h4>
             <span [ngClass]="character.character_class.name.en_GB">
                 {{ character.level }}

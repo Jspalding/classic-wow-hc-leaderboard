@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CharacterService } from '../core/services/character.service';
-import { catchError, forkJoin, of, Subject, takeUntil } from 'rxjs';
+import { catchError, forkJoin, map, of, Subject, takeUntil } from 'rxjs';
 import { Character } from '../core/models/character/character.interface';
 
 import { LeaderboardTileComponent } from './leaderboard-tile/leaderboard-tile.component';
@@ -37,22 +37,26 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
         this.isLoading = true;
 
         const characters = [
-            { name: 'smootheyes', server: 'stitches' },
-            { name: 'hoofinboofer', server: 'stitches' },
-            { name: 'teezone', server: 'nekrosh' },
-            { name: 'goofygal', server: 'stitches' },
-            { name: 'rubyreubs', server: 'stitches' },
-            { name: 'pumpumpalaii', server: 'stitches' },
-            { name: 'pumpumpala', server: 'stitches' },
-            { name: 'oysqdnzyr', server: 'stitches' },
-            { name: 'wnorhuhno', server: 'stitches' },
-            { name: 'jakepaulgoat', server: 'stitches' },
+            { name: 'smootheyes', server: 'stitches', playerName: 'James' },
+            { name: 'hoofinboofer', server: 'stitches', playerName: 'Tom' },
+            { name: 'teezone', server: 'nekrosh', playerName: 'Tom' },
+            { name: 'goofygal', server: 'stitches', playerName: 'Tom' },
+            { name: 'rubyreubs', server: 'stitches', playerName: 'Raph' },
+            { name: 'pumpumpalaii', server: 'stitches', playerName: 'Reiss' },
+            { name: 'pumpumpala', server: 'stitches', playerName: 'Reiss' },
+            { name: 'oysqdnzyr', server: 'stitches', playerName: 'Reub' },
+            { name: 'wnorhuhno', server: 'stitches', playerName: 'Reub' },
+            { name: 'jakepaulgoat', server: 'stitches', playerName: 'Tom' },
         ];
 
         const characterRequests = characters.map((character) =>
             this.characterService
                 .getCharacterByName(character.name, character.server)
                 .pipe(
+                    map((response) => ({
+                        ...response,
+                        playerName: character.playerName,
+                    })),
                     catchError((error) => {
                         if (error.status === 404) {
                             console.warn(

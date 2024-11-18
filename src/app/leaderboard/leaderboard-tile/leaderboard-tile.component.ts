@@ -1,24 +1,18 @@
 import { CommonModule } from '@angular/common';
+import { take } from 'rxjs';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+
 import { Character } from '../../core/models/character/character.interface';
 import { IsDeadPipe } from '../../core/pipes/isDead.pipe';
 import { IsSSFPipe } from '../../core/pipes/isSSF.pipe';
 import { CharacterService } from '../../core/services/character.service';
 import { CharacterMedia } from '../../core/models/character/character-media.interface';
-import { take } from 'rxjs';
 import { LeaderboardArmouryComponent } from './leaderboard-armoury/leaderboard-armoury.component';
-import { ArmouryItemSlotComponent } from './leaderboard-armoury/armoury-item-slot/armoury-item-slot.component';
 
 @Component({
     selector: 'leaderboard-tile',
     standalone: true,
-    imports: [
-        CommonModule,
-        IsDeadPipe,
-        IsSSFPipe,
-        LeaderboardArmouryComponent,
-        ArmouryItemSlotComponent,
-    ],
+    imports: [CommonModule, IsDeadPipe, IsSSFPipe, LeaderboardArmouryComponent],
     templateUrl: './leaderboard-tile.component.html',
     styleUrl: './leaderboard-tile.component.scss',
 })

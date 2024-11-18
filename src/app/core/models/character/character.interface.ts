@@ -36,6 +36,7 @@ export interface Character {
     is_ghost: boolean;
     is_self_found: boolean;
     isFirst?: boolean;
+    playerName: string;
 }
 
 export interface Titles {
