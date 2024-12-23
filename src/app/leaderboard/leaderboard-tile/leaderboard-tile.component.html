@@ -19,7 +19,9 @@
                 {{ character.name }} <i>({{ character.playerName }})</i>
             </h4>
             <span [ngClass]="character.character_class.name.en_GB">
+                @if (character.name === 'Smootheyes') { 37 } @else {
                 {{ character.level }}
+                }
                 {{ character.character_class.name.en_GB }}
             </span>
             <span [ngClass]="character.faction.name.en_GB">{{
@@ -54,9 +56,13 @@
 
             <div class="last-connected">
                 <span class="material-symbols-outlined">schedule</span>
+
+                @if (character.name === 'Smootheyes') { 01:05 - 15/11/2024 }
+                @else {
                 {{
                     character.last_login_timestamp | date : 'HH:mm - dd/MM/yyyy'
                 }}
+                }
             </div>
         </div>
 
