@@ -21,6 +21,7 @@ export class LeaderboardTileComponent implements OnInit, OnDestroy {
 
     @Input() character!: Character;
     @Input() index: number = 0;
+    @Input() compFinished: boolean = false;
 
     avatarSrc: string = '';
 
@@ -28,12 +29,18 @@ export class LeaderboardTileComponent implements OnInit, OnDestroy {
 
     showArmory: boolean = false;
 
+    winner: boolean = false;
+
     isLoading: boolean = false;
 
     ngOnInit(): void {
         this.isLoading = true;
 
         this.badge = this.generateBadgeByIndex(this.index);
+
+        if (this.compFinished && this.index === 1) {
+            this.winner = true;
+        }
 
         this.characterService
             .getCharacterAvatarByName(this.character.name, 'stitches')

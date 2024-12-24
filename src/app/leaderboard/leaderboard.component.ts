@@ -26,10 +26,19 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
     characterList: Character[] = [];
     graveyard: Character[] = [];
 
+    hasCompFinished: boolean = false;
+    winner!: Character;
+
     isLoading = false;
     destroy$: Subject<void> = new Subject<void>();
 
     ngOnInit(): void {
+        this.characterService.compFinished
+            .pipe(takeUntil(this.destroy$))
+            .subscribe((response) => {
+                this.hasCompFinished = response;
+            });
+
         this.buildCharacterList();
     }
 

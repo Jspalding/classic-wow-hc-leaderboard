@@ -12,6 +12,8 @@ import { CountdownComponent } from './countdown-timer/countdown-timer.component'
 export class SidebarComponent {
     prizePool: string = '£50';
 
+    compFinished: boolean = false;
+
     onConvert() {
         let currencies: string[] = [
             '50 massive ones',
@@ -25,5 +27,9 @@ export class SidebarComponent {
 
         const randomIndex = Math.floor(Math.random() * currencies.length);
         this.prizePool = currencies[randomIndex];
+    }
+
+    toggleFinish(finished: boolean) {
+        this.compFinished = finished;
     }
 }

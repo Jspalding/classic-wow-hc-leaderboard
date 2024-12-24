@@ -1,9 +1,17 @@
 <div class="countdown">
     <h5>Countdown</h5>
     <div class="timer">
-        <span>{{ remainingTime.days }} D</span>
-        <span>{{ remainingTime.hours }} H </span>
-        <span>{{ remainingTime.minutes }} M</span>
-        <span>{{ remainingTime.seconds }} S</span>
+        <span [ngClass]="{ finished: remainingTime.days === 0 }">
+            {{ remainingTime.days }} D
+        </span>
+        <span [ngClass]="{ finished: remainingTime.hours === 0 }">
+            {{ remainingTime.hours }} H
+        </span>
+        <span [ngClass]="{ finished: remainingTime.minutes === 0 }">
+            {{ remainingTime.minutes }} M
+        </span>
+        <span [ngClass]="{ finished: remainingTime.seconds === 0 }">
+            {{ remainingTime.seconds }} S
+        </span>
     </div>
 </div>

@@ -13,7 +13,8 @@
         <ng-container *ngFor="let char of characterList; let index = index">
             <leaderboard-tile
                 [character]="char"
-                [index]="index + 1"></leaderboard-tile>
+                [index]="index + 1"
+                [compFinished]="hasCompFinished"></leaderboard-tile>
         </ng-container>
 
         <div class="graveyard-actions">

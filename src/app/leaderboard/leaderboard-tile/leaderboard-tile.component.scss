@@ -80,10 +80,20 @@
             flex-direction: column;
             justify-content: center;
 
-            h4 {
+            .character-name-wrapper {
                 font-size: 1.6rem;
                 margin: 0rem;
+                display: flex;
+
+                .character-name {
+                    margin-right: 5px;
+                }
+
+                .player-name {
+                    margin-right: 5px;
+                }
             }
+
             span {
                 display: block;
             }
@@ -116,6 +126,10 @@
             .character-ssf {
                 color: #1b7e00;
                 font-style: normal;
+
+                &.dead {
+                    color: c.$light-red;
+                }
             }
 
             .character-status {
@@ -198,6 +212,11 @@
             }
         }
     }
+}
+
+.crown::before {
+    content: '👑';
+    margin-right: 5px;
 }
 
 .Druid {

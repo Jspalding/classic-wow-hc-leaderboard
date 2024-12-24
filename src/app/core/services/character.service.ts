@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Character } from '../models/character/character.interface';
 import { AuthService } from './auth.service';
-import { map, Observable, switchMap, take } from 'rxjs';
+import { BehaviorSubject, map, Observable, switchMap, take } from 'rxjs';
 import { CharacterMedia } from '../models/character/character-media.interface';
 import { CharacterClassMedia } from '../models/character/character-class-media.interface';
 import { CharacterGear } from '../models/character/character-gear.interface';
@@ -79,6 +79,9 @@ export class CharacterService {
 
     private apiUrl = environment.euApiUrl;
     private namespace: string = environment.euProfileNamespace;
+
+    public compFinished: BehaviorSubject<boolean> =
+        new BehaviorSubject<boolean>(false);
 
     private createHeaders(): Observable<HttpHeaders> {
         return this.authService.ensureValidToken().pipe(

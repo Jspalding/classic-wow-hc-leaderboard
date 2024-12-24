@@ -1,14 +1,26 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+    Component,
+    EventEmitter,
+    OnDestroy,
+    OnInit,
+    Output,
+} from '@angular/core';
 import { interval, Subscription } from 'rxjs';
+import { CharacterService } from '../../core/services/character.service';
 
 @Component({
     selector: 'countdown-timer',
     standalone: true,
-    imports: [],
+    imports: [CommonModule],
     templateUrl: './countdown-timer.component.html',
     styleUrl: './countdown-timer.component.scss',
 })
 export class CountdownComponent implements OnInit, OnDestroy {
+    constructor(private characterService: CharacterService) {}
+
+    @Output() onCompFinish = new EventEmitter<boolean>();
+
     endDate = new Date('2024-12-25T00:00:00');
 
     remainingTime: {
@@ -26,7 +38,9 @@ export class CountdownComponent implements OnInit, OnDestroy {
     private timerSub: Subscription | undefined;
 
     ngOnInit(): void {
-        this.timerSub = interval(500).subscribe(() => {
+        this.updateCountdown();
+
+        this.timerSub = interval(0).subscribe(() => {
             this.updateCountdown();
         });
     }
@@ -46,6 +60,9 @@ export class CountdownComponent implements OnInit, OnDestroy {
             };
         } else {
             this.remainingTime = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+
+            this.characterService.compFinished.next(true);
+            this.onCompFinish.emit(true);
 
             if (this.timerSub) {
                 this.timerSub.unsubscribe();

@@ -15,13 +15,16 @@
         </div>
 
         <div class="character-info">
-            <h4 [ngClass]="character.faction.name.en_GB">
-                {{ character.name }} <i>({{ character.playerName }})</i>
+            <h4
+                [ngClass]="character.faction.name.en_GB"
+                class="character-name-wrapper">
+                <span *ngIf="winner" class="crown"></span>
+                <span class="character-name">{{ character.name }}</span>
+                <i class="player-name">({{ character.playerName }})</i>
+                <span *ngIf="winner" class="crown"></span>
             </h4>
             <span [ngClass]="character.character_class.name.en_GB">
-                @if (character.name === 'Smootheyes') { 37 } @else {
                 {{ character.level }}
-                }
                 {{ character.character_class.name.en_GB }}
             </span>
             <span [ngClass]="character.faction.name.en_GB">{{
@@ -49,20 +52,28 @@
                 {{ character.is_ghost | isDead }}
             </div>
 
-            <div class="character-ssf">
-                <span class="material-symbols-outlined">check_circle</span>
+            <div
+                class="character-ssf"
+                [ngClass]="{ dead: !character.is_self_found }">
+                <span
+                    *ngIf="character.is_self_found"
+                    class="material-symbols-outlined"
+                    >check_circle</span
+                >
+                <span
+                    *ngIf="!character.is_self_found"
+                    class="material-symbols-outlined"
+                    >cancel</span
+                >
+
                 {{ character.is_self_found | isSSF }}
             </div>
 
             <div class="last-connected">
                 <span class="material-symbols-outlined">schedule</span>
-
-                @if (character.name === 'Smootheyes') { 01:05 - 15/11/2024 }
-                @else {
                 {{
                     character.last_login_timestamp | date : 'HH:mm - dd/MM/yyyy'
                 }}
-                }
             </div>
         </div>
 

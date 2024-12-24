@@ -6,7 +6,17 @@
 
     <div class="rules-wrapper">
         <div class="top-content">
-            <countdown-timer></countdown-timer>
+            <div class="winner" *ngIf="compFinished">
+                <h3>The champion is...</h3>
+                <h3 class="class">
+                    <span class="crown"></span>
+                    Smootheyes
+                    <span class="crown"></span>
+                </h3>
+            </div>
+
+            <countdown-timer
+                (onCompFinish)="toggleFinish($event)"></countdown-timer>
 
             <div class="prize-pool">
                 <h2>Prize pool</h2>
